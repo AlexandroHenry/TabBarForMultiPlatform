@@ -10,8 +10,17 @@ import SwiftUI
 @main
 struct TabBarForMultiPlatformApp: App {
     var body: some Scene {
+        
+        // Hiding Window For Only MacOS...
+        #if os(iOS)
         WindowGroup {
             ContentView()
         }
+        #else
+        WindowGroup {
+            ContentView()
+        }
+        .windowStyle(HiddenTitleBarWindowStyle())
+        #endif
     }
 }
